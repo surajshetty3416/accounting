@@ -14,7 +14,7 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha tests",
-    "start": "nodemon server.js",
+    "start": "node start.js",
     "watch": "rollup -c --watch",
     "electron": "EIO_WS_ENGINE=ws electron main.js",
     "electron-pack": "electron-packager . --overwrite",
