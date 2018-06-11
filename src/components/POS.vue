@@ -27,46 +27,12 @@ export default {
   },
   data() {
     return {
-      items: [
-        {
-          name: "Apple",
-          price: 2.99
-        },
-        {
-          name: "Orange",
-          price: 0.99
-        },
-        {
-          name: "Banana",
-          price: 5.99
-        },
-        {
-          name: "TV",
-          price: 199.99
-        },
-        {
-          name: "X-Box One",
-          price: 299.99
-        },
-        {
-          name: "iPhone 6 Plus",
-          price: 299.99
-        },
-        {
-          name: "Cup",
-          price: 3.99
-        },
-        {
-          name: "Yogurt",
-          price: 0.49
-        },
-        {
-          name: "Hat",
-          price: 9.99
-        }
-      ],
+      items: [],
       lineItems: []
     };
+  },
+  async created() {
+    this.items = await frappe.db.getAll({doctype: "Item", fields: ['name', 'rate']})
   },
   methods: {
     onItemClick: function(item) {
